@@ -1,30 +1,61 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div>
+    <component-form />
+    <component-list />
+  </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import ComponentForm from "./components/ComponentForm";
+import ComponentList from "./components/ComponentList";
 
-nav {
-  padding: 30px;
-}
+export default {
+  components: {
+    ComponentForm,
+    ComponentList,
+  },
+  data() {
+    return {
+      comments: [
+        {
+          id: 1,
+          name: "jafar",
+          email: "jafar@gmail.com",
+          content: "lorem ipsum ament",
+        },
+        {
+          id: 2,
+          name: "alex",
+          email: "alex@gmail.com",
+          content: "lorem ipsum ament",
+        },
+        {
+          id: 3,
+          name: "anna",
+          email: "anna@gmail.com",
+          content: "lorem ipsum ament",
+        },
+      ],
+      name: "",
+      email: "",
+      content: "",
+    };
+  },
+  methods: {
+    createComment() {
+      const newComments = {
+        id: this.comments.length + 1,
+        name: this.name,
+        email: this.email,
+        content: this.content,
+      };
+      this.comments.push(newComments);
+      this.name = "";
+      this.email = "";
+      this.content = "";
+    },
+  },
+};
+</script>
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+<style></style>
