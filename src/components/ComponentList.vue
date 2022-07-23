@@ -8,7 +8,14 @@
   </div>
 </template>
 <script>
-export default {};
+export default {
+  props: {
+    comments: {
+      type: Array,
+      required: true, 
+    },
+  },
+};
 </script>
 <style scoped>
 .card {

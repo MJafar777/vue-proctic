@@ -1,7 +1,7 @@
 <template>
   <div>
     <component-form />
-    <component-list />
+    <component-list v-bind:comments="comments" />
   </div>
 </template>
 
@@ -36,9 +36,7 @@ export default {
           content: "lorem ipsum ament",
         },
       ],
-      name: "",
-      email: "",
-      content: "",
+     
     };
   },
   methods: {
